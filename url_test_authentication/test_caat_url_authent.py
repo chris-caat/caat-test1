@@ -1,6 +1,10 @@
 import requests
 from requests.auth import HTTPBasicAuth
 
+import os
+print( "here" )
+print( os.getcwd() )
+
 file = open( '../../data.txt' )
 user_line = file.readline()
 user = user_line.split( ':' )[ 1 ].strip()
