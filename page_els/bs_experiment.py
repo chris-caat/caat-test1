@@ -42,20 +42,27 @@ assert( header )
 # assert( headerXXX )
 
 
-for a_link in soup.html.body.select( 'a' ):
-    print( a_link )
-    if a_link.has_attr( 'href' ):
-        url =  a_link[ 'href' ]
-        print( url )
 
-        if url == '/' or url == '#' or url == '':
-            print ( '***************************')
 
-    if a_link.has_attr( 'hrefXXX' ):
-        print( "... also hrefXXX")
-    print( hasattr( a_link, 'href' ) )
-    print( hasattr( a_link, 'hrefXXX' ) )
+# for a_link in soup.html.body.select( 'a' ):
+#     print( a_link )
+#     if a_link.has_attr( 'href' ):
+#         url =  a_link[ 'href' ]
+#         print( url )
+
+#         if url == '/' or url == '#' or url == '':
+#             print ( '***************************')
+
+#     if a_link.has_attr( 'hrefXXX' ):
+#         print( "... also hrefXXX")
+#     print( hasattr( a_link, 'href' ) )
+#     print( hasattr( a_link, 'hrefXXX' ) )
     
     
-    # print( a_link.hasattr( 'hrefXXX' ) )
-        # print( "also hrefXXX (2)")
+#     # print( a_link.hasattr( 'hrefXXX' ) )
+#         # print( "also hrefXXX (2)")
+
+
+link_list = list( soup.html.body.select( 'a' ) )
+
+print( link_list )
