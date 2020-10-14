@@ -9,7 +9,8 @@ def test_home_page_has_right_title():
 
     ###############################################################################
     # DELIBERATE FAIL:
-    assert 'XXX Campaign Against the Arms Trade' in soup.title, 'did not find "XXX Campaign Against the Arms Trade" in home page title'
+    full_name = 'XXX Campaign Against the Arms Trade'
+    assert full_name in soup.title, f'did not find "{full_name}" in home page title'
     ###############################################################################
 
 def test_home_page_has_right_elements():
@@ -17,7 +18,6 @@ def test_home_page_has_right_elements():
     response = requests.get(url)
     soup = BeautifulSoup( response.text, 'html.parser' )
     check_page_elements( soup.html.body, 'home page')
-
 
 @pytest.mark.parametrize('page_name', [ 'about-caat', 'news', 'events', 'resources', ])         
 def test_top_of_page_banner_pages_have_right_elements( page_name ):
@@ -36,3 +36,4 @@ def check_page_elements( body, page_name ):
     # DELIBERATE FAIL:
     assert body.furtwangle, f'page {page_name} has no furtwangle page element'
     ###############################################################################
+
