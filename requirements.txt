@@ -1,0 +1,11 @@
+# 2020-10-14 - NB Ian: if you ever look at this, please let me know whether I've done it
+# right. My current understanding is simply that one lists all the stuff added
+# using pip... 
+
+###### Requirements without Version Specifiers ######
+
+beautifulsoup4
+requests
+pytest
+
+###### Requirements with Version Specifiers ######
