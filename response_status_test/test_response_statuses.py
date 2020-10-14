@@ -49,10 +49,8 @@ def test_resources_pages( page_name ):
 def test_data_pages( page_name ):
     check_response_code( 'data', page_name, 200 )
 
-@pytest.mark.parametrize('page_name', [ '', ])         
-def test_data_page_itself_is_forbidden( page_name ):
-    check_response_code( 'data', page_name, 403 )
-
+def test_data_page_itself_is_forbidden():
+    check_response_code( 'data', '', 403 )
 
 def check_response_code( section_name, page_name, expected_code ):
     if section_name:
@@ -62,8 +60,6 @@ def check_response_code( section_name, page_name, expected_code ):
     response = requests.get(url)
     err_msg = f'http request to page caat.org.uk/{section_name}/{page_name} returned incorrect status code: {response.status_code}. Expected: {expected_code}'
     assert response.status_code == expected_code, err_msg
-
-
 
 # TODO other pages linking from home page
 
