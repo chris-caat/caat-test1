@@ -2,22 +2,22 @@ import requests
 import pytest
 from bs4 import BeautifulSoup
 
-def get_all_links_from_pages():
+def get_all_link_tuples_from_pages():
     # NB this now produces some 550 links from the home page + 4 "top banner" pages - 
     # the test took 3 1/2 minutes the first time it was run... but will normally 
     # probably take longer
 
     page_names =  [ '', 'about-caat', 'news', 'events', 'resources', ]
-    a_links = []
+    link_tuples = []
     for page_name in page_names:
         url = 'http://www.caat.org.uk/' + page_name
         response = requests.get(url)
         soup = BeautifulSoup( response.text, 'html.parser' )
-        a_links.extend( [ ( x, page_name ) for x in soup.html.body.select( 'a' )] )
-    return a_links
+        link_tuples.extend( [ ( x, page_name, ) for x in soup.html.body.select( 'a' )] )
+    return link_tuples
 
 def pytest_generate_tests(metafunc):
-    metafunc.parametrize( 'link_tuple', get_all_links_from_pages() )
+    metafunc.parametrize( 'link_tuple', get_all_link_tuples_from_pages() )
 
 def test_all_links_200(link_tuple):
     a_link = link_tuple[ 0 ]

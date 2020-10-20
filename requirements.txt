@@ -7,5 +7,7 @@
 beautifulsoup4
 requests
 pytest
+selenium
+webdriver-manager # NB sets up Geckodriver ...
 
 ###### Requirements with Version Specifiers ######
