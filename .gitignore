@@ -1,2 +1,11 @@
-*.pyc
+*.pyc 
+*.txt 
+requirements.txt 
+*.json 
+**/tmp 
+**/temp
+/.settings
+.project
+.pydevproject
 *.log
+*.tmp
